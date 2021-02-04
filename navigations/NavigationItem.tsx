@@ -16,7 +16,7 @@ export const NavItem: React.FC<NavItemPropTypes> = ({isActive, svg,title, setCur
                 <Path d={svg}
                       fill={!isActive ? "#ADB4BB" : "#0666EB"}/>
             </Svg>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={{color: !isActive ? "#ADB4BB" : "#0666EB", fontFamily: "Montserrat400"} }>{title}</Text>
         </Pressable>
     )
 }
@@ -25,9 +25,5 @@ const styles = StyleSheet.create( {
     item: {
         alignItems: "center",
         marginRight: 25
-    },
-    title: {
-        color: "#8B959E",
-        fontFamily: "Montserrat400"
     }
 })
