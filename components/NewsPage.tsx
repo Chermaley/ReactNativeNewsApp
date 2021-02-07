@@ -1,4 +1,4 @@
-import {ActivityIndicator, ScrollView, StyleSheet, Text, View} from "react-native";
+import {ActivityIndicator, FlatList, ScrollView, StyleSheet, Text, View} from "react-native";
 import React from "react";
 import { NewItemType, NewsItem } from "./NewsItem";
 import {useHttp} from "../hooks/useHttp";
@@ -25,9 +25,11 @@ export const NewsPage: React.FC = () => {
         )
     }
     return (
-        <ScrollView style={styles.container}>
-            {news.map(n => <NewsItem newsItem={n} key={n.id}/>)}
-        </ScrollView>
+        <FlatList data={news} 
+                  keyExtractor={item => item.id} 
+                  style={styles.container}
+                  renderItem={({item}) => <NewsItem newsItem={item}/>}/>
+        
     );
 }
 const styles = StyleSheet.create( {
